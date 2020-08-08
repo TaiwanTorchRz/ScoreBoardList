@@ -1,0 +1,4 @@
+name: ScoreBoardList
+version: ${project.version}
+main: gittorch.scoreboardlist.ScoreBoardList
+api-version: 1.16
