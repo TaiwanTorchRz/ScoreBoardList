@@ -3,6 +3,7 @@ package gittorch.scoreboardlist;
 
 
 import net.md_5.bungee.api.ChatColor;
+import net.md_5.bungee.api.ChatMessageType;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Statistic;
@@ -541,9 +542,8 @@ public class PlayerBoard implements Listener {
                     default:
                         throw new IllegalStateException("Unexpected value: " + index);
                 }
-                Bukkit.getServer().getConsoleSender().sendMessage("index: "+ChatColor.RED + index);
 
-        }, ConfigManager.get().getInt("timer"), 10);
+        }, 0, ConfigManager.get().getInt("timer"));
 
     }
 
@@ -574,7 +574,7 @@ public class PlayerBoard implements Listener {
         Score score14 = objective.getScore("");
         score14.setScore(-1);
 
-        Score scoreEnd = objective.getScore(ChatColor.GRAY  + "Made by DevTorch");
+        Score scoreEnd = objective.getScore(ChatColor.GRAY + "Update every"+ (ConfigManager.get().getInt("timer")/20) +"s");
         scoreEnd.setScore(-2);
         p.setScoreboard(board);
     }
