@@ -11,11 +11,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.scoreboard.*;
 
-
-import javax.security.auth.login.Configuration;
-import java.time.format.FormatStyle;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -545,7 +543,7 @@ public class PlayerBoard implements Listener {
                 }
                 Bukkit.getServer().getConsoleSender().sendMessage("index: "+ChatColor.RED + index);
 
-        }, 200, 10);
+        }, ConfigManager.get().getInt("timer"), 10);
 
     }
 
@@ -580,5 +578,7 @@ public class PlayerBoard implements Listener {
         scoreEnd.setScore(-2);
         p.setScoreboard(board);
     }
+
+
 }
 
