@@ -1,0 +1,12 @@
+level: true
+ARMOR_CLEANED: true
+deathCount: true
+food: true
+#broken
+minecraft.broken.minecraft.acacia_boat: true
+minecraft.broken.minecraft.acacia_button: true
+minecraft.broken.minecraft.acacia_door: true
+minecraft.broken.minecraft.acacia_fence: true
+minecraft.broken.minecraft.acacia_fence_gate: true
+minecraft.broken.minecraft.acacia_leaves: true
+minecraft.broken.minecraft.acacia_log: true
