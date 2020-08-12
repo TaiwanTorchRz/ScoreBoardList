@@ -112,12 +112,93 @@ public class PlayerBoard implements Listener {
 
     @EventHandler
     public void PlayerJoinEvent(PlayerJoinEvent e) {
-        for (Player PLAYER : Bukkit.getOnlinePlayers()) {
-            if (ConfigManager.get().getBoolean("DEATHS")) DEATHS.put(PLAYER.getDisplayName(), PLAYER.getStatistic(Statistic.DEATHS));
-        }
-        ScoreBoard(DEATHS,"DEATHS",e.getPlayer());
         Bukkit.getScheduler().runTaskTimer(plugin, () -> {
+                ANIMALS_BRED .clear();
+                ARMOR_CLEANED.clear();
+                AVIATE_ONE_CM.clear();
+                BANNER_CLEANED.clear();
+                BEACON_INTERACTION.clear();
+                BELL_RING.clear();
+                BOAT_ONE_CM.clear();
+//                BREAK_ITEM: false
+                BREWINGSTAND_INTERACTION.clear();
+                CAKE_SLICES_EATEN.clear();
+                CAULDRON_FILLED.clear();
+                CAULDRON_USED.clear();
+                CHEST_OPENED.clear();
+                CLEAN_SHULKER_BOX.clear();
+                CLIMB_ONE_CM.clear();
+//                CRAFT_ITEM: false
+                CRAFTING_TABLE_INTERACTION.clear();
+                CROUCH_ONE_CM.clear();
+                DAMAGE_ABSORBED.clear();
+                DAMAGE_BLOCKED_BY_SHIELD.clear();
+                DAMAGE_DEALT.clear();
+                DAMAGE_DEALT_ABSORBED.clear();
+                DAMAGE_DEALT_RESISTED.clear();
+                DAMAGE_RESISTED.clear();
+                DAMAGE_TAKEN.clear();
+                DEATHS.clear();
+                DISPENSER_INSPECTED.clear();
+//                DROP: false
+                DROP_COUNT.clear();
+                DROPPER_INSPECTED.clear();
+                ENDERCHEST_OPENED.clear();
+//                ENTITY_KILLED_BY: false
+                FALL_ONE_CM.clear();
+                FISH_CAUGHT.clear();
+                FLOWER_POTTED.clear();
+                FLY_ONE_CM.clear();
+                FURNACE_INTERACTION.clear();
+                HOPPER_INSPECTED.clear();
+                HORSE_ONE_CM.clear();
+                INTERACT_WITH_ANVIL.clear();
+                INTERACT_WITH_BLAST_FURNACE.clear();
+                INTERACT_WITH_CAMPFIRE.clear();
+                INTERACT_WITH_CARTOGRAPHY_TABLE.clear();
+                INTERACT_WITH_GRINDSTONE.clear();
+                INTERACT_WITH_LECTERN.clear();
+                INTERACT_WITH_LOOM.clear();
+                INTERACT_WITH_SMITHING_TABLE.clear();
+                INTERACT_WITH_SMOKER.clear();
+                INTERACT_WITH_STONECUTTER.clear();
+                ITEM_ENCHANTED.clear();
+                JUMP.clear();
+//                KILL_ENTITY: false
+                LEAVE_GAME.clear();
+//                MINE_BLOCK: false
+                MINECART_ONE_CM.clear();
+                MOB_KILLS.clear();
+                NOTEBLOCK_PLAYED.clear();
+                NOTEBLOCK_TUNED.clear();
+                OPEN_BARREL.clear();
+//                PICKUP: false
+                PIG_ONE_CM.clear();
+                PLAY_ONE_MINUTE.clear();
+                PLAYER_KILLS.clear();
+                RAID_TRIGGER.clear();
+                RAID_WIN.clear();
+                RECORD_PLAYED.clear();
+                SHULKER_BOX_OPENED.clear();
+                SLEEP_IN_BED.clear();
+                SNEAK_TIME.clear();
+                SPRINT_ONE_CM.clear();
+                STRIDER_ONE_CM.clear();
+                SWIM_ONE_CM.clear();
+                TALKED_TO_VILLAGER.clear();
+                TARGET_HIT.clear();
+                TIME_SINCE_DEATH.clear();
+                TIME_SINCE_REST.clear();
+                TRADED_WITH_VILLAGER.clear();
+                TRAPPED_CHEST_TRIGGERED.clear();
+//                USE_ITEM: false
+                WALK_ON_WATER_ONE_CM.clear();
+                WALK_ONE_CM.clear();
+                WALK_UNDER_WATER_ONE_CM.clear();
+
+
                 for (Player PLAYER : Bukkit.getOnlinePlayers()) {
+//                    Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.RED + " " + Bukkit.getOnlinePlayers());
                     if (ConfigManager.get().getBoolean("ANIMALS_BRED")) ANIMALS_BRED.put(PLAYER.getDisplayName(), PLAYER.getStatistic(Statistic.ANIMALS_BRED));
                     if (ConfigManager.get().getBoolean("ARMOR_CLEANED")) ARMOR_CLEANED.put(PLAYER.getDisplayName(), PLAYER.getStatistic(Statistic.ARMOR_CLEANED));
                     if (ConfigManager.get().getBoolean("AVIATE_ONE_CM")) AVIATE_ONE_CM.put(PLAYER.getDisplayName(),PLAYER.getStatistic(Statistic.AVIATE_ONE_CM));
@@ -210,11 +291,13 @@ public class PlayerBoard implements Listener {
 
                 }
                 int index = (int) (Math.random() * 81)+1;
+//                int index = 6;
+//                Bukkit.getConsoleSender().sendMessage(ChatColor.RED + BELL_RING.toString());
                 switch(index){
                     case 1: if (ConfigManager.get().getBoolean("ANIMALS_BRED")){
                                 ScoreBoard(ANIMALS_BRED,"ANIMALS_BRED",e.getPlayer());
                                 break;
-                            }
+                    }
                     case 2: if (ConfigManager.get().getBoolean("ARMOR_CLEANED")){
                         ScoreBoard(ARMOR_CLEANED,"ARMOR_CLEANED",e.getPlayer());
                         break;
@@ -574,7 +657,7 @@ public class PlayerBoard implements Listener {
         Score score14 = objective.getScore("");
         score14.setScore(-1);
 
-        Score scoreEnd = objective.getScore(ChatColor.GRAY + "Update every"+ (ConfigManager.get().getInt("timer")/20) +"s");
+        Score scoreEnd = objective.getScore(ChatColor.GRAY + "Update every "+ (ConfigManager.get().getInt("timer")/20) +" s");
         scoreEnd.setScore(-2);
         p.setScoreboard(board);
     }
